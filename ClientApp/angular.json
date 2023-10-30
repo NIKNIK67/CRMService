@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "CRMService"
+  "defaultProject": "CRMService",
+  "cli": {
+    "analytics": false
+  }
 }
