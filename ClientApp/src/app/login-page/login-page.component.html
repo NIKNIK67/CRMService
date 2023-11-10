@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+  <div class="col-3 card bg-body-tertiary m-1 mb-2 border-0 pb-2 pt-2">
+    <form class="form-group">
+      <div class="mt-2 mb-2">
+        <label class="form-label" for="Email">Email: </label>
+        <input type="email" class="form-control border-0" id="Email" [(ngModel)] ="email" name="email"/>
+      </div>
+      <div class="mt-2 mb-2">
+        <label class="form-label" for="Password">Password:</label>
+        <input class="form-control border-0" type="password" id="Password" [(ngModel)] ="password" name="password"/>
+      </div>
+      <div class="row">
+        <div class="col mb-2">
+          <input type="submit" class="form-control btn btn-primary" value="Log in" (click)="sendRequest()">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
