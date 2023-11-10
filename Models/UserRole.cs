@@ -2,10 +2,12 @@
 
 namespace CRMService.Models
 {
-    public enum UserRole
+    public class UserRole
     {
-        Admin,
-        Manager,
-        Worker
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<User> RoleOwners { get; set; }
+        public ActionAccess Rule { get; set; }
+
     }
 }
