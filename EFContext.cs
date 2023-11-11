@@ -5,9 +5,9 @@ namespace CRMService
 {
     public class EFContext : DbContext
     {
-        DbSet<User> Users { get; set; }
-        DbSet<ActionAccess> AccessSets { get; set; }
-        DbSet<UserRole> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<ActionAccess> AccessSets { get; set; }
+        public DbSet<UserRole> Roles { get; set; }
         public EFContext()
         {
             Database.EnsureCreated();
@@ -36,7 +36,7 @@ namespace CRMService
                 entity.HasKey(x => x.Id);
                 entity.Property(x => x.Name);
                 entity.HasMany(x => x.RoleOwners).WithOne(a => a.role);
-                entity.HasOne(x => x.Rule).WithOne(a => a.RootRole);
+                entity.HasOne(x => x.Rule).WithOne(a => a.RootRole).HasForeignKey<ActionAccess>(a => a.RuleId);
             });
             model.Entity<ActionAccess>(entity =>
             {

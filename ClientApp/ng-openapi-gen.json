@@ -1,0 +1,6 @@
+{
+  "input": "https://127.0.0.1:7237/swagger/v1/swagger.json",
+  "output": "src/app/api",
+  "SkipJsonSuffix": true,
+  "removeStaleFiles": true
+}
