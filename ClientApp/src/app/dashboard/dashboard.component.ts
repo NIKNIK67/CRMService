@@ -10,6 +10,11 @@ export class DashboardComponent implements AfterViewInit {
   @ViewChild("StatisticData") chartCanvas: any
   @ViewChild("StatisticPie") pieCanvas: any
   ngAfterViewInit(): void {
+    let style = window.getComputedStyle(document.documentElement);
+    let bsDanger = style.getPropertyValue('--bs-danger').trim();
+    let bsSuccess = style.getPropertyValue('--bs-success').trim();
+    let bsWarning = style.getPropertyValue('--bs-warning').trim();
+    let bsDarkEmphasis = style.getPropertyValue('--bs-dark-text-emphasis').trim();
     var ctx = this.chartCanvas.nativeElement.getContext('2d');
     const chart = new Chart(ctx!, {
       type: 'line',
@@ -23,9 +28,9 @@ export class DashboardComponent implements AfterViewInit {
           '07.01.1900',
         ],
         datasets: [{
-          label: 'Activity statistics for last week',
-          backgroundColor: 'rgb(255,255,255)',
-          borderColor: 'rgb(255,255,255)',
+          label: 'Actions',
+          backgroundColor: bsDarkEmphasis,
+          borderColor: bsDarkEmphasis,
           data: [10, 20, 5, 2, 10, 45]
         }]
       },
@@ -37,17 +42,17 @@ export class DashboardComponent implements AfterViewInit {
       type: 'pie',
       data: {
         labels: [
-          'Red',
-          'Blue',
-          'Yellow'
+          'Deleted',
+          'Uploaded',
+          'Edited'
         ],
         datasets: [{
           label: 'My First Dataset',
           data: [300, 50, 100],
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+            bsDanger,
+            bsSuccess,
+            bsWarning
           ],
         }]
       },
