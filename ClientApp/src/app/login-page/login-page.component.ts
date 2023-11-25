@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -6,9 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
-  email: string =""
+
+  email: string = ""
   password: string = ""
+  isVisible: boolean = false
+
+  constructor(private api: ApiService, private router: Router) {
+  }
+
   sendRequest(): void {
-    console.log(this.email+"\n"+this.password)
+    this.api.apiLoginGet({ email: this.email, password: this.password }).subscribe(x => {
+      this.isVisible = false;
+      localStorage.setItem("jwt", JSON.parse((<any>x)).token);
+      this.router.navigate([''])
+    }, error => {
+      this.isVisible = true;
+    })
   }
 }
