@@ -14,11 +14,11 @@ namespace CRMService.Controllers
     public class ApiController : ControllerBase
     {
         private IConfiguration _configuration;
-        private EFContext _context;
+        private EFContext _EFcontext;
         public ApiController(EFContext eFContext, IConfiguration configuration)
         {
             _configuration = configuration;
-            _context = eFContext ?? throw new NullReferenceException();
+            _EFcontext = eFContext ?? throw new NullReferenceException();
         }
 #if DEBUG
         /// <summary>
@@ -41,8 +41,8 @@ namespace CRMService.Controllers
             rootUser.role = defaultRootAccess;
             defaultRootAccess.RoleOwners.Add(rootUser);
             access.RootRole = defaultRootAccess;
-            _context.Users.Add(rootUser);
-            _context.SaveChanges();
+            _EFcontext.Users.Add(rootUser);
+            _EFcontext.SaveChanges();
         }
 #endif
         [HttpGet]
@@ -79,7 +79,7 @@ namespace CRMService.Controllers
         {
             if (email != null && password != null)
                 email = email.ToLower();
-            User LoginUser = _context.Users.Include(x => x.role).ThenInclude(x => x.Rule).FirstOrDefault(x => x.email == email && x.password == password);
+            User LoginUser = _EFcontext.Users.Include(x => x.role).ThenInclude(x => x.Rule).FirstOrDefault(x => x.email == email && x.password == password);
             if (LoginUser == null)
                 return Unauthorized();
 
@@ -98,5 +98,14 @@ namespace CRMService.Controllers
             var token = new JwtSecurityTokenHandler().WriteToken(tokenConf);
             return Ok(new { token });
         }
+        //[HttpGet]
+        //[Authorize]
+        //[ProducesResponseType(401)]
+        //[ProducesResponseType(typeof(List<User>), 200)]
+        //[Route("Login")]
+        //public ActionResult<List<User>> GetUsers()
+        //{
+
+        //}
     }
 }

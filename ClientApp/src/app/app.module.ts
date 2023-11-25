@@ -12,6 +12,7 @@ import { AuthorizationJwtInterceptor } from './AuthorizationJwtInterceptor';
 import { AuthService } from './AuthService';
 import { JwtModule } from '@auth0/angular-jwt/lib/angular-jwt.module';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const API_INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -26,6 +27,7 @@ export const API_INTERCEPTOR_PROVIDER: Provider = {
     NavMenuComponent,
     HomeComponent,
     LoginPageComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,7 +35,8 @@ export const API_INTERCEPTOR_PROVIDER: Provider = {
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full', canActivate: [AuthService] },
-      { path: 'login-page', component: LoginPageComponent, pathMatch: 'full'  },
+      { path: 'login-page', component: LoginPageComponent, pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthService] }
     ]),
   ],
   providers: [
