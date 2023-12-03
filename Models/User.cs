@@ -4,9 +4,14 @@ namespace CRMService.Models
 {
     public class User
     {
-        public int id { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
-        public UserRole role { get; set; }
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int RoleId { get; set; }
+        public UserRole Role { get; set; }
+        public int RuleId { get; set; }
+        public ActionAccess Rule { get; set; }
+        public List<AnnoucementObject> Annoucements { get; set; }
+
     }
 }

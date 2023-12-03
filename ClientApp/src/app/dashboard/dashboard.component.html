@@ -1,12 +1,12 @@
-<div class="row">
-  <div class="col-7">
-    <div class="card bg-body-tertiary pt-2 border-0">
-      <div class="card-title text-center">
-        <h2>Activity Logs</h2>
+<div class="row p-3 pb-0">
+  <div class="col-9">
+    <div class="card bg-body-tertiary p-3 border-0 h-100">
+      <div class="card-title text-center m-0">
+        <h2 class="m-0">Activity Logs</h2>
       </div>
-      <div class="card-body">
+      <div class="card-body pt-0">
         <hr />
-        <div class="row">
+        <div class="row pb-1">
           <div class="col-3  text-center">
             <strong>
               UserNameOrId
@@ -19,7 +19,7 @@
             01.01.1900
           </div>
         </div>
-        <div class="row">
+        <div class="row pb-1">
           <div class="col-3  text-center">
             <strong>
               UserNameOrId
@@ -32,7 +32,7 @@
             01.01.1900
           </div>
         </div>
-        <div class="row">
+        <div class="row pb-1">
           <div class="col-3  text-center">
             <strong>
               UserNameOrId
@@ -45,7 +45,7 @@
             01.01.1900
           </div>
         </div>
-        <div class="row">
+        <div class="row pb-1">
           <div class="col-3  text-center">
             <strong>
               UserNameOrId
@@ -58,7 +58,7 @@
             01.01.1900
           </div>
         </div>
-        <div class="row">
+        <div class="row pb-1">
           <div class="col-3  text-center">
             <strong>
               UserNameOrId
@@ -71,7 +71,7 @@
             01.01.1900
           </div>
         </div>
-        <div class="row">
+        <div class="row pb-1">
           <div class="col-3  text-center">
             <strong>
               UserNameOrId
@@ -87,72 +87,47 @@
       </div>
     </div>
   </div>
-  <div class="col-5">
-    <div class="card bg-body-tertiary pt-2 border-0">
-      <div class="card-title text-center">
-        <h2>Last News</h2>
-      </div>
+  <div class="col-3">
+    <div class="card bg-body-tertiary border-0 h-100">
       <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col text-center">
-                <h5>News 1</h5>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ultrices mattis. Proin metus lacus, rutrum quis rhoncus id, suscipit eu eros. Nullam auctor at eros sed pellentesque. Praesent ac commodo leo, et viverra neque. Etiam eros lectus, scelerisque in pharetra quis, ultrices eu dui.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col text-center">
-                <h5>News 2</h5>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ultrices mattis. Proin metus lacus, rutrum quis rhoncus id, suscipit eu eros. Nullam auctor at eros sed pellentesque. Praesent ac commodo leo, et viverra neque. Etiam eros lectus, scelerisque in pharetra quis, ultrices eu dui.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <div class="row">
-              <div class="col text-center">
-                <h5>News 3</h5>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper ultrices mattis. Proin metus lacus, rutrum quis rhoncus id, suscipit eu eros. Nullam auctor at eros sed pellentesque. Praesent ac commodo leo, et viverra neque. Etiam eros lectus, scelerisque in pharetra quis, ultrices eu dui.
-              </div>
-            </div>
-          </div>
-        </div>
+        <canvas id="StatisticPie" #StatisticPie>
+        </canvas>
       </div>
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-9">
-    <div class="card bg-body-tertiary mt-2 pt-2 border-0">
+<div class="row p-3">
+  <div class="col-12">
+    <div class="card bg-body-tertiary mt-2 pt-2 border-0 h-100">
       <div class="card-body">
         <canvas id="StatisticData" #StatisticData>
         </canvas>
       </div>
     </div>
   </div>
-    <div class="col-3">
-    <div class="card bg-body-tertiary mt-2 pt-2 border-0">
+    
+</div>
+<div class="row p-3">
+  <div class="col-12">
+    <div class="card bg-body-tertiary pt-2 border-0">
+      <div class="card-title text-center">
+        <h2>Last News</h2>
+      </div>
       <div class="card-body">
-        <canvas id="StatisticPie" #StatisticPie>
-        </canvas>
+        <div class="row pt-1 pb-1" *ngFor="let annoucement of this.news">
+          <div class="col">
+            <div class="row">
+              <div class="col">
+                <h5>{{annoucement.header}}</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{annoucement.content}}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

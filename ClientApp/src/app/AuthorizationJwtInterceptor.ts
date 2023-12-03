@@ -16,7 +16,7 @@ export class AuthorizationJwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
       request = request.clone({
         setHeaders: {
-          'Authorization': 'Bearer ' + localStorage.getItem("jwt")
+          'Authorization': 'Bearer '+localStorage.getItem("jwt")
         }
       });
       return next.handle(request);

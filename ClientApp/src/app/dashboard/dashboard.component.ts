@@ -1,14 +1,25 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import { Chart, LineController } from 'chart.js/auto';
+import { ApiService } from '../api/services';
+import { AnnoucementObject } from '../api/models';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements AfterViewInit {
+export class DashboardComponent implements AfterViewInit,OnInit {
   @ViewChild("StatisticData") chartCanvas: any
   @ViewChild("StatisticPie") pieCanvas: any
+  news: AnnoucementObject[] =[]
+  constructor(private api: ApiService) {
+  }
+  ngOnInit() {
+    this.api.apiGetAnoucementsGet$Json().subscribe(x => {
+      this.news = x;
+      console.log(x);
+    })
+  }
   ngAfterViewInit(): void {
     let style = window.getComputedStyle(document.documentElement);
     let bsDanger = style.getPropertyValue('--bs-danger').trim();
