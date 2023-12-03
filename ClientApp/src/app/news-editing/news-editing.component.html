@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+  <div class="col-9 card bg-body-tertiary m-1 mb-2 border-0 pb-2 pt-2">
+    <div class="card-title text-center">
+      <h3>Edit News</h3>
+    </div>
+    <div class="card-body">
+      <form class="form-group">
+        <div class="mt-2 mb-2">
+          <label class="form-label" for="Email">Header </label>
+          <input type="text" class="form-control border-0" id="header" [(ngModel)]="header" name="header" />
+        </div>
+        <div class="mt-2 mb-2">
+          <label class="form-label" for="Password">Content</label>
+          <textarea class="form-control border-0" rows="10" id="content" [(ngModel)]="content" name="content"></textarea>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-3 mt-2 mb-2">
+            <input type="submit" class="form-control btn btn-success" value="Edit news" (click) ="send()">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="isErrorVisible">
+  <div class="row justify-content-center">
+    <div class="col-9 card bg-danger-subtle m-1 mb-2 border-danger-subtle border-2 pb-2 pt-2">
+      <div class="card-content text-danger-emphasis">
+        You don't have access to modify this article or it do not exist
+      </div>
+    </div>
+  </div>
+</ng-container>

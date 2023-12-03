@@ -2,12 +2,11 @@
 
 namespace CRMService.Models
 {
-    public class UserRole
+    public class Document
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<User> RoleOwners { get; set; }
-        public int RuleId { get; set; }
+        public string Path { get; set; }
         public List<ActionAccess> Rules { get; set; }
 
     }
