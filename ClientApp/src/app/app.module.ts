@@ -15,6 +15,10 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewsAddingComponent } from './news-adding/news-adding.component';
 import { NewsEditingComponent } from './news-editing/news-editing.component';
+import { ProjectSidebarComponent } from './project-sidebar/project-sidebar.component';
+import { ProjectComponent } from './project/project.component';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { ProjectCreateComponent } from './project-create/project-create.component';
 
 export const API_INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -32,6 +36,10 @@ export const API_INTERCEPTOR_PROVIDER: Provider = {
     DashboardComponent,
     NewsAddingComponent,
     NewsEditingComponent,
+    ProjectSidebarComponent,
+    ProjectComponent,
+    ProjectListComponent,
+    ProjectCreateComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

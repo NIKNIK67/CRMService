@@ -7,7 +7,7 @@ namespace CRMService.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Path { get; set; }
-        public List<ActionAccess> Rules { get; set; }
+        public List<Project> Projects { get; set; }
 
     }
 }
