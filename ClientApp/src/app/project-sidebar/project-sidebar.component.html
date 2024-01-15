@@ -1,0 +1,43 @@
+<div class=" card p-2 bg-body-tertiary border-0">
+  <button class="btn" (click)="openMainPage()">
+    <div class="row mb-2 mt-2 h-auto" >
+      <div class="col-2 p-0 d-flex justify-content-center align-items-center">
+        <fa-icon [icon]="faHouse"></fa-icon>
+      </div>
+      <div class="col-10 fs-4 fw-semibold">Project Name</div>
+    </div>
+  </button>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-outline-primary w-100 mb-1" (click)="openMemberPage()">
+        <div class="row">
+          <div class="col-2 p-1">
+            <fa-icon [icon]="faUsers"></fa-icon>
+          </div>
+          <div class="col-10">
+            Members
+          </div>
+        </div>
+      </button>
+      <button class="btn btn-outline-primary w-100 mt-1" (click)="openDocumentsPage()">
+        <div class="row">
+          <div class="col-2 p-1">
+            <fa-icon [icon]="faFile"></fa-icon>
+          </div>
+          <div class="col-10">
+            Documents
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="row align-items-end">
+    <div class="col">
+      <hr>
+      <div class="row">
+        <div class="col">User@Email.com</div>
+      </div>
+    </div>
+  </div>
+</div>
