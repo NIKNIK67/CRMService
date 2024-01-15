@@ -1,1 +1,19 @@
-<p>project works!</p>
+<div class="row p-0 ">
+  <div class="col-3 p-0">
+    <app-project-sidebar [(doDisplayMainPage)]="doDisplayMainPage" [(doDisplayDocumentPage)]="doDisplayDocumentPage" [(doDisplayMemberPage)]="doDisplayMemberPage">
+
+    </app-project-sidebar>
+  </div>
+  <div class="col-9">
+    <!--change on sidebar button click-->
+    <ng-container *ngIf="this.doDisplayMainPage">
+      <app-project-mainpage></app-project-mainpage>
+    </ng-container>
+    <ng-container *ngIf="this.doDisplayDocumentPage">
+      <app-project-documents></app-project-documents>
+    </ng-container>
+    <ng-container *ngIf="this.doDisplayMemberPage">
+      <app-project-membersmanagement></app-project-membersmanagement>
+    </ng-container>
+  </div>
+</div>

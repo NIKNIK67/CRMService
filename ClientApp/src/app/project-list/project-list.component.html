@@ -1,1 +1,33 @@
-<p>project-list works!</p>
+<div class="row pt-3">
+  <div class="col-9 ps-0">
+    <form class="form-group">
+      <input type="text" class="form-control border-0 bg-body-tertiary m-0" id="Search" placeholder="Type project name" [(ngModel)]="search" name="search" />
+    </form>
+  </div>
+  <div class="col-3 pe-0">
+    <button class="btn btn-outline-primary w-100" type="button">Search </button>
+  </div>
+</div>
+<div class="row pt-2">
+  <div class="col-9"></div>
+  <div class="col-3 pe-0"><button class="btn btn-outline-primary w-100" type="button" (click)="redirectToProjectCreation()">Create Project</button></div>
+</div>
+<hr>
+<div class="row pt-3">
+    <div class="col card bg-body-tertiary border-0" [routerLink]="['/project/0']">
+      <div class="card-title">
+        <h4 class="ps-4 pt-2">ProjectName</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">members: <strong>count</strong></div>
+          <div class="col-6">documents: <strong>count</strong></div>
+        </div>
+        <div class="row">
+          <div class="col-6">messages: <strong>count</strong></div>
+          <div class="col-6"></div>
+        </div>
+      </div>
+    </div>
+</div>
+
